@@ -1,0 +1,86 @@
+Anuj Patel & Matt Snyder
+
+
+a2) The drawbacks that could occur are due to many of the probabilities being
+    multiplied together all at once. By doing so, this can potentially cause
+    an underflow of the value, and thus, cannot be expressed within the float
+    boundaries. Another drawback is that any one of the probabilities can equal
+    0, hence making the entire product equal to 0. This would ensue many
+    inaccuracies.
+
+
+a5) Summary of Results:
+    10% of data used for training:- Correct Predicted Value = 0.733
+    20% of data used for training:- Correct Predicted Value = 0.772
+    30% of data used for training:- Correct Predicted Value = 0.792
+    40% of data used for training:- Correct Predicted Value = 0.789
+    50% of data used for training:- Correct Predicted Value = 0.800
+    60% of data used for training:- Correct Predicted Value = 0.801
+    70% of data used for training:- Correct Predicted Value = 0.805
+    80% of data used for training:- Correct Predicted Value = 0.815
+    90% of data used for training:- Correct Predicted Value = 0.813
+    100% of data used for training:- Correct Predicted Value = 0.817
+
+
+a6) The k value we decided to use in the end was k = 1. We chose this as our k
+    value since the smaller the value was, the more accurate our classifier
+    became. By adding this small smoothing factor, the probabilities were only
+    slightly skewed to ensure the most accurate results.
+
+    Our classifier, using 100% of the training data, yielded a Correct Predicted
+    Value of 0.817 or 81.7%. We found this result to be reasonably good since
+    it classified 81.7% of the images correctly using only a single binary
+    factor, and with only 5000 training data examples (a relatively small sample
+    size). By introducing more training data, the result can potentially be more
+    accurate.
+
+
+
+b1) New features being added:
+    1) Count number of '+' signs in each image. By distinguishing the difference
+       between the '+' signs and the '#' signs, we were able to retrieve more
+       detail from the image. Since most of the '+' signs resided on the outer
+       edge of most digit images, it provided a new detail that was rather
+       unique to each digit. Thus, when given a validation image, we could use
+       the number of '+' signs to determine whether or not the image was a good
+       fit for a particular class.
+
+    2) Find the average width of each image. We accomplished this by finding the
+       leftmost and rightmost pixel that were either equal to 1 or 2 in each of
+       the images provided in the training data. By finding the average width in
+       each image for a certain digit, we were able to use that information to
+       potentially see if there was a better fit for the validation image given
+       based on its calculated width.
+
+    3) Find the average height of each image. We accomplished this by finding
+       the topmost and bottommost pixel that were either equal to 1 or 2 in each
+       of the images provided in the training data set. By finding the average
+       height in each image for a particular digit, we were able to use that
+       information to potentially see if there was a better fit for the
+       validation image given based on its calculated height.
+
+       Classifier Performance is the same as shown below as our features were an
+       extension of the existing basic binary feature (the first feature
+       examined/used both '+' signs and '#' signs simultaneously, hence the
+       basic feature is technically already included in our results, thus we
+       cannot differentiate the two).
+
+
+
+b2) Summary of Results Combining both the Basic Features and the Added Features:
+    10% of data used for training:- Correct Predicted Value = 0.737
+    20% of data used for training:- Correct Predicted Value = 0.786
+    30% of data used for training:- Correct Predicted Value = 0.801
+    40% of data used for training:- Correct Predicted Value = 0.802
+    50% of data used for training:- Correct Predicted Value = 0.811
+    60% of data used for training:- Correct Predicted Value = 0.810
+    70% of data used for training:- Correct Predicted Value = 0.809
+    80% of data used for training:- Correct Predicted Value = 0.824
+    90% of data used for training:- Correct Predicted Value = 0.823
+    100% of data used for training:- Correct Predicted Value = 0.825
+
+
+    By combining the Basic Features and Added Features, the Correct Predicted
+    Value for each of the trials (10% - 100%) slightly increased from just
+    using the Basic Features. Overall, our result has improved by 0.008 when
+    comparing the two "100% of data used for training" trials (0.825 - 0.817).
